@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest Number Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-96">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Find the Largest Number</h1>
+        <input 
+            type="text" 
+            id="arrayInput" 
+            class="border-2 border-gray-300 p-2 rounded-md w-full mb-4" 
+            placeholder="Enter numbers separated by commas">
+        <button 
+            onclick="findLargestNumber()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 w-full">
+            Find Largest
+        </button>
+        <h2 id="result" class="text-gray-800 mt-4 text-lg">The largest number will appear here</h2>
+    </div>
+
+    <script>
+        function findLargestNumber() {
+            const input = document.getElementById("arrayInput").value;
+            if (!input) {
+                document.getElementById("result").innerText = "Please enter some numbers.";
+                return;
+            }
+
+            const array = input.split(",").map(Number); // Convert input string to an array of numbers
+            let max = array[0];
+
+            for (let num of array) {
+                if (num > max) {
+                    max = num;
+                }
+            }
+
+            document.getElementById("result").innerText = `The largest number is: ${max}`;
+        }
+    </script>
+</body>
+</html>

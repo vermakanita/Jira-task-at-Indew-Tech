@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Video Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Youtube Video Search</h1>
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search for videos" 
+            class="border-2 border-gray-300 p-2 rounded-md w-full mb-4">
+        <button 
+            id="searchVideos" 
+            class="bg-blue-500 text-white p-2 rounded-md w-full hover:bg-blue-600 transition duration-300" 
+            onclick="showData()">
+            Search
+        </button>
+        <div id="videoGrid" class="mt-4"></div>
+    </div>
+
+    <script>
+        const videos = [
+            {
+                title: "Learn HTML",
+                img: "https://www.educative.io/api/page/5184213461499904/image/download/6096311389519872",
+                url: "https://www.bing.com/videos/riverview/relatedvideo?&q=html&&mid=CC4F786097E7B5A9C76CCC4F786097E7B5A9C76C&&FORM=VRDGAR",
+            },
+            {
+                title: "JavaScript",
+                img: "https://tse3.mm.bing.net/th/id/OIP.DEt_TbohHcb6KhpldP6vMwHaEK?rs=1&pid=ImgDetMain",
+                url: "https://www.bing.com/videos/riverview/relatedvideo?&q=javascript&&mid=FE01E1C8816B3CCC91F8FE01E1C8816B3CCC91F8&&FORM=VRDGAR",
+            },
+            {
+                title: "Tailwind",
+                img: "https://laravelnews.s3.amazonaws.com/images/tailwindcss-1633184775.jpg",
+                url: "https://www.youtube.com/watch?v=_9mTJ84uL1Q&t=268s",
+            },
+        ];
+
+        const showData = () => {
+            const videoGrid = document.getElementById("videoGrid");
+            const searchInput = document.getElementById("searchInput").value.trim().toLowerCase();
+
+            videoGrid.innerHTML = ""; // Clear previous results
+
+            // Filter videos based on user input
+            const filteredVideos = searchInput
+                ? videos.filter((video) => video.title.toLowerCase().includes(searchInput))
+                : videos; // Show all videos if no input
+
+            // Display videos
+            if (filteredVideos.length === 0) {
+                videoGrid.innerHTML = `<p class="text-red-500">No videos available for "${searchInput}".</p>`;
+            } else {
+                filteredVideos.forEach((video) => {
+                    videoGrid.innerHTML += `
+                        <div class="text-left mb-4">
+                            <h2 class="text-xl font-bold text-gray-800 mb-2">${video.title}</h2>
+                            <a href="${video.url}" target="_blank" class="block">
+                                <img src="${video.img}" alt="${video.title}" class="rounded-md shadow-md">
+                            </a>
+                        </div>
+                    `;
+                });
+            }
+        };
+
+        // Show all videos on page load
+        window.onload = showData;
+    </script>
+</body>
+
+</html>

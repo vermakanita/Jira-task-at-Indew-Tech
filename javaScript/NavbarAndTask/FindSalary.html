@@ -1,0 +1,79 @@
+ 
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 via-white to-blue-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+    <h2 class="text-3xl font-bold text-blue-700 text-center mb-8">Salary Calculator</h2>
+
+    <div class="space-y-5">
+      <div>
+        <label for="salary" class="block text-blue-800 font-medium mb-1">Your Salary (₹):</label>
+        <input type="number" id="salary" placeholder="Enter Basic Salary"
+          class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="hra" class="block text-blue-800 font-medium mb-1">House Rent (% of Basic):</label>
+        <input type="number" id="hra" placeholder="e.g. 20"
+          class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="other" class="block text-blue-800 font-medium mb-1">Other Benefits (% of Basic):</label>
+        <input type="number" id="other" placeholder="e.g. 20"
+          class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <div>
+        <label for="deduction" class="block text-blue-800 font-medium mb-1">Deductions (₹):</label>
+        <input type="number" id="deduction" placeholder="PF, Tax, etc."
+          class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      </div>
+
+      <button onclick="calculateSalary()"
+        class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 rounded-lg hover:from-blue-600 hover:to-blue-800 transition duration-300">
+        Calculate
+      </button>
+
+      <h3 id="result" class="text-center text-lg text-blue-800 font-semibold mt-4">Your salary details will appear here</h3>
+    </div>
+  </div>
+
+  <script>
+    const calculateSalary = () => {
+      const salary = parseFloat(document.getElementById("salary").value);
+      const hraPer = parseFloat(document.getElementById("hra").value);
+      const otherPer = parseFloat(document.getElementById("other").value);
+      const deduction = parseFloat(document.getElementById("deduction").value);
+
+      if (isNaN(salary) || isNaN(hraPer) || isNaN(otherPer) || isNaN(deduction) || salary <= 0) {
+        document.getElementById("result").innerText = "Please enter valid inputs in all fields.";
+        return;
+      }
+
+      const hra = salary * (hraPer / 100);
+      const other = salary * (otherPer / 100);
+
+      const gross = salary + hra + other;
+      const net = gross - deduction;
+
+      document.getElementById("result").innerHTML = `
+        <div><strong>Gross Salary:</strong> ₹${gross.toFixed(2)}</div>
+        <div><strong>Net Salary:</strong> ₹${net.toFixed(2)}</div>
+      `;
+    };
+  </script>
+
+</body>
+
+</html>
+

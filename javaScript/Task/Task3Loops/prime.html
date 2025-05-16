@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-96">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Prime Number Checker</h1>
+        <input 
+            type="number" 
+            id="numberInput" 
+            class="border-2 border-gray-300 p-2 rounded-md w-full mb-4" 
+            placeholder="Enter a number">
+        <button 
+            onclick="checkPrime()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 w-full">
+            Check Prime
+        </button>
+        <h2 id="result" class="text-gray-800 mt-4 text-lg">The result will appear here</h2>
+    </div>
+
+    <script>
+        function checkPrime() {
+            const n = parseInt(document.getElementById("numberInput").value);
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(n) || n <= 1) {
+                resultDiv.innerText = "Please enter a valid number greater than 1.";
+                return;
+            }
+
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            resultDiv.innerText = isPrime 
+                ? `The number ${n} is a prime number.` 
+                : `The number ${n} is not a prime number.`;
+        }
+    </script>
+</body>
+</html>

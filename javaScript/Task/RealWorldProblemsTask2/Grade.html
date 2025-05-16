@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-10 rounded-lg shadow-lg">
+        <h1 class="text-white text-2xl mb-4">grade Calculator</h1>
+        <input type="number" id="num" class="border-2 border-gray-300 p-2 rounded-md" placeholder="Enter a marks">
+        <button id="btn" onclick="grade()" class="bg-blue-500 text-white p-2 rounded-md">Calculate Factorial</button>
+        <h1 id="ans" class="text-white mt-4"></h1>
+    </div>
+     
+    <script>
+        const grade=()=>{
+    let marks = 10;
+
+marks >= 90 ? console.log("A+") :
+marks >= 80 ? console.log("A") :
+marks >=70 ? console.log ("B") :
+marks >= 60 ? console.log("C") :
+marks >= 50 ? console.log("D") :
+console.log("F");
+        }
+        grade();
+
+    </script>
+</body>
+</html>
+
+ 

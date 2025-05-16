@@ -1,0 +1,46 @@
+ 
+
+
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Discount Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-96">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Discount Calculator</h1>
+        <input 
+            type="number" 
+            id="price" 
+            class="border-2 border-gray-300 p-2 rounded-md w-full mb-4" 
+            placeholder="Enter the price">
+        <button 
+            onclick="calculateDiscount()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 w-full">
+            Calculate Discount
+        </button>
+        <div id="result" class="text-gray-800 mt-4 text-lg"></div>
+    </div>
+
+    <script>
+        const calculateDiscount = () => {
+            let price = document.getElementById("price").value;
+            if (price === "") {
+                document.getElementById("result").innerText = "Please enter a price.";
+                return;
+            }
+            let finalPrice = price >= 1000 ? price - price * 0.10 : price;
+            document.getElementById("result").innerText = `The final price after discount is: ₹${finalPrice}`;
+        };
+    </script>
+</body>
+</html>
+
+
+

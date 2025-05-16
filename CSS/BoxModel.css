@@ -1,0 +1,17 @@
+#div1{
+    margin: 50px;
+    padding: 20px;
+    border : 2px solid red;
+    box-sizing: border-box;
+    background-color: aqua;
+}  
+
+#div2{
+    height: 250px;
+    /* width: 250px; */
+    /* margin: 600px;
+    padding: 200px; */
+    border : 2px solid red;
+    background-color: aqua;
+}
+ 

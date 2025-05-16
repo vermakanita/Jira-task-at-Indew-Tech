@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indew Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body id="body" class="transition duration-1000">
+
+  <nav class="flex justify-between items-center px-6 py-4 bg-black">
+
+    <div>
+      <!-- <img class="rounded-full ml-8 hover:scale-125 transition duration-500" src="https://tse1.mm.bing.net/th/id/OIP.2sqFLOkjKacba-IfbZL45gAAAA?rs=1&pid=ImgDetMain" alt="myLogo"> -->
+      <img 
+      class="rounded-full ml-8 hover:scale-125 transition duration-500 h-16 w-17" 
+      src="https://tse1.mm.bing.net/th/id/OIP.2sqFLOkjKacba-IfbZL45gAAAA?rs=1&pid=ImgDetMain" 
+      alt="myLogo">
+    </div>
+
+    <!-- <ul id="menu" class=" space-x-10 flex font-semibold cursor-pointer text-black ">
+      <li><a href="#" class="hover:text-indigo-600 hover:scale-125 transition duration-500">Home</a></li>
+      <li><a href="#" class="hover:text-indigo-600 hover:scale-125 transition duration-500">Features</a></li>
+      <li><a href="#" class="hover:text-indigo-600 hover:scale-125 transition duration-500">Pricing</a></li>
+      <li><a href="#" class="hover:text-indigo-600 hover:scale-125 transition duration-500">Contact</a></li>
+      <li class="hover:text-indigo-600 hover:scale-125 transition duration-500" onclick="changeTheme('light')">Light Mode</li>
+      <li class="hover:text-indigo-600 hover:scale-125 transition duration-500" onclick="changeTheme('dark')">Dark Mode</li>
+    </ul> -->
+    <ul id="menu" class="flex space-x-8 font-medium text-white">
+        <li>
+          <a href="#" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="./Task.html" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Task
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            About Us
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Contact
+          </a>
+        </li>
+        <li>
+          <button onclick="changeTheme('light')" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Light 
+          </button>
+        </li>
+        <li>
+          <button onclick="changeTheme('dark')" class="hover:text-blue-500 hover:underline underline-offset-4 transition duration-300">
+            Dark 
+          </button>
+        </li>
+      </ul>
+
+
+
+  </nav>
+
+  <main>
+
+    <div class="text-center bg-white h-20 flex items-center justify-center text-3xl font-bold text-black">
+      Our Rsponsibilities to make you a better developer
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-10 max-w-7xl mx-auto my-10">
+
+      <!-- python Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4 ">
+
+        <img src="https://files.realpython.com/media/python-logo.8eb72ea6927b.png" alt="Python Logo" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">Python Development</p>
+
+        <div class="flex flex-col items-center space-y-2 ">
+
+          <a href="https://www.w3schools.com/python/" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300 hover:scale-110">Explore Python</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+      <!-- MERN Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4">
+
+        <img src="https://miro.medium.com/v2/resize:fit:1358/1*Ik9bSDA6n96jyoTI4jpc_Q.png" alt="MERN Course" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">MERN STACK DEVELOPER</p>
+
+        <div class="flex flex-col items-center space-y-2">
+
+          <a href="https://www.mongodb.com/resources/languages/mern-stack" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300 hover:scale-110">Explore MERN</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+      <!-- Node.js Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4">
+
+        <img src="https://thecustomizewindows.cachefly.net/wp-content/uploads/2022/03/Angular-A-Widely-Used-Framework-for-Web-Development.png" alt="Angular" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">Web application framework</p>
+
+        <div class="flex flex-col items-center space-y-2">
+
+          <a href="https://www.w3schools.com/angular/default.asp" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300 hover:scale-110">Explore Angular</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+      <!-- React.js Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="ReactJS" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">Web application Library</p>
+
+        <div class="flex flex-col items-center space-y-2">
+
+          <a href="https://react.dev/" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-lightgreen-700 transition duration-300 hover:scale-110">Explore React</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+
+
+  <!-- mongodb Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4">
+
+        <img src="https://tse3.mm.bing.net/th/id/OIP.reQWyeftyi6xOSAC6CHu9wHaHB?rs=1&pid=ImgDetMain" alt="ReactJS" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">Non Relational Database</p>
+
+        <div class="flex flex-col items-center space-y-2">
+
+          <a href="https://www.w3schools.com/mongodb/index.php" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-lightgreen-700 transition duration-300 hover:scale-110">Explore mongodb</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+
+
+
+
+
+      <!-- My sql  Card -->
+      <div class="h-80 w-64 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4">
+
+        <img src="https://tse3.mm.bing.net/th/id/OIP.lflm3p0jvoC4p8c-j8zfJgHaEk?rs=1&pid=ImgDetMain" alt="ReactJS" class="h-32 w-32 object-contain transition duration-300 hover:scale-110">
+
+        <p class="text-2xl font-bold text-center text-black">Relational Database MySql</p>
+
+        <div class="flex flex-col items-center space-y-2">
+
+          <a href="https://www.w3schools.com/mysql/default.asp" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-lightgreen-700 transition duration-300 hover:scale-110">Explore MySql</a>
+
+          <!-- <a href="#" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition duration-300 hover:scale-110">Add to Cart</a> -->
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </main>
+
+</body>
+
+<script>
+  const changeTheme = (mode) => {
+    const body = document.getElementById('body');
+    if (mode === 'dark') {
+      document.getElementById('body').style.background = "black";
+      document.getElementById('body').style.color = "white";
+    } else {
+      document.getElementById('body').style.background = "white";
+      document.getElementById('body').style.color = "black";
+    }
+  }
+</script>
+
+</html>

@@ -1,0 +1,113 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access Element by Index</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="arrayInput"
+      placeholder="Enter array (like:10,20,30)"
+    />
+    <br />
+    <br />
+    <input
+      type="number"
+      id="elementInput"
+      placeholder="Enter Element (like:10)"
+    />
+    <br />
+    <br />
+    <button onclick="getElement()">Submit</button>
+    <h1 id="result"></h1>
+  </body>
+  <script>
+    const getElement = () => {
+      const arrayInput = document.getElementById("arrayInput").value;
+      const element = Number(document.getElementById("elementInput").value);
+      const result = document.getElementById("result");
+
+      const arr = arrayInput.split(",").map(Number);
+
+      let count = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+          result.innerHTML += `${element} is Present at ${i} index <br>`;
+          count++;
+        }
+      }
+      if (count === 0) {
+        alert(`${element} not Found in Array`);
+      }
+      document.getElementById("arrayInput").value = "";
+      document.getElementById("elementInput").value = "";
+    };
+  </script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Array Traversing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-indigo-100 via-white to-indigo-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-indigo-800 text-center mb-6">Array Traversing</h2>
+
+    <label for="arrayInput" class="block text-indigo-700 font-medium mb-2">Enter array (comma-separated):</label>
+    <input type="text" id="arrayInput" placeholder="e.g. 10,20,30"
+      class="w-full p-3 rounded-lg border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+
+    <button onclick="checkElement()"
+      class="w-full mt-5 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white font-bold py-3 rounded-lg hover:from-indigo-600 hover:to-indigo-800 transition duration-300">
+      Get All Elements
+    </button>
+
+    <div id="result" class="mt-6 text-indigo-800 font-medium space-y-1 text-center"></div>
+  </div>
+
+  <script>
+    const checkElement = () => {
+      const result = document.getElementById("result");
+      const arrayInput = document.getElementById("arrayInput").value;
+
+      const arr = arrayInput.split(",").map(num => Number(num.trim()));
+      result.innerHTML = ""; // Clear previous results
+
+      if (arr.length === 0 || arrayInput.trim() === "") {
+        result.innerHTML = `<div class="text-red-600 font-semibold">Please enter a valid array</div>`;
+        return;
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        result.innerHTML += `<div>${i + 1}. Element of array is: <strong>${arr[i]}</strong></div>`;
+      }
+
+      document.getElementById("arrayInput").value = "";
+    };
+  </script>
+
+</body>
+
+</html>
+

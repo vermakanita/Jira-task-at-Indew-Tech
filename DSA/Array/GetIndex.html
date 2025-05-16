@@ -1,0 +1,117 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Travelsing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      
+  </head>
+  <body>
+    <input
+      type="text"
+      id="arrayInput"
+      placeholder="Enter array (like:10,20,30)"
+    />
+
+    <button type="submit" onclick="checkElement()">Get All Element</button>
+    <h1 id="result"></h1>
+  </body>
+  <script>
+    const checkElement = () => {
+      let result = document.getElementById("result");
+      const arrayInput = document.getElementById("arrayInput").value;
+
+      const arr = arrayInput.split(",").map(Number);
+
+      for (let i = 0; i < arr.length; i++) {
+        result.innerHTML += `${i + 1} Element of Array is :: ${arr[i]} <br>`;
+      }
+
+      document.getElementById("arrayInput").value = "";
+    };
+  </script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Element by Index</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-purple-100 via-white to-purple-200 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md">
+    <h2 class="text-2xl font-bold text-purple-800 text-center mb-6">Find Element in Array</h2>
+
+    <div class="space-y-5">
+      <div>
+        <label for="arrayInput" class="block text-purple-700 font-medium mb-1">Enter array (comma-separated):</label>
+        <input type="text" id="arrayInput" placeholder="e.g. 10,20,30"
+          class="w-full p-3 rounded-lg border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+      </div>
+
+      <div>
+        <label for="elementInput" class="block text-purple-700 font-medium mb-1">Enter element to find:</label>
+        <input type="number" id="elementInput" placeholder="e.g. 10"
+          class="w-full p-3 rounded-lg border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400" />
+      </div>
+
+      <button onclick="getElement()"
+        class="w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white font-bold py-3 rounded-lg hover:from-purple-600 hover:to-purple-800 transition duration-300">
+        Submit
+      </button>
+
+      <div id="result" class="text-center text-purple-800 font-medium space-y-1"></div>
+    </div>
+  </div>
+
+  <script>
+    const getElement = () => {
+      const arrayInput = document.getElementById("arrayInput").value;
+      const element = Number(document.getElementById("elementInput").value);
+      const result = document.getElementById("result");
+
+      const arr = arrayInput.split(",").map(num => Number(num.trim()));
+      result.innerHTML = ""; // Clear previous results
+      let count = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === element) {
+          result.innerHTML += `<div>${element} is present at index ${i}</div>`;
+          count++;
+        }
+      }
+
+      if (count === 0) {
+        result.innerHTML = `<div class="text-red-600 font-semibold">${element} not found in array</div>`;
+      }
+
+      document.getElementById("arrayInput").value = "";
+      document.getElementById("elementInput").value = "";
+    };
+  </script>
+
+</body>
+
+</html>
