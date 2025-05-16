@@ -1,0 +1,111 @@
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📈 Stock Market Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #00ffc3;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      margin: 20px auto;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.02);
+    }
+
+    #stock, #Notification {
+      margin-top: 10px;
+      padding: 12px;
+      background-color: #1e293b;
+      color: #f1f5f9;
+      border-left: 6px solid #38bdf8;
+      font-size: 18px;
+      border-radius: 4px;
+      min-height: 5vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h2>📊 Stock Market Update</h2>
+    <div id="stock">Loading stock data...</div>
+  </div>
+
+  <div class="box">
+    <h2>🔔 Notifications</h2>
+    <div id="Notification">Loading notifications...</div>
+  </div>
+
+  <script>
+    function fetchStock() {
+      const stockValue = (1000 + Math.random() * 200).toFixed(2);
+      document.getElementById("stock").innerHTML = `MRF: ₹ ${stockValue}`;
+    }
+
+    function getNotification() {
+      const notifications = [
+        "📈 Nifty 50 rises 0.85%, led by gains in IT and banking stocks.",
+        "💼 Tata Motors Q4 results beat expectations; net profit up 23% YoY.",
+        "🔔 Stock Alert: Infosys hits 52-week high at ₹1,710.",
+        "📉 Sensex falls 350 points amid global market weakness.",
+        "📰 Breaking: RBI keeps repo rate unchanged at 6.5%.",
+        "🛢️ Crude oil prices dip as demand concerns resurface.",
+        "📊 Top Gainer: Adani Enterprises up 5.6% in today’s trade.",
+        "⚠️ Market Volatility Alert: VIX surges 12% ahead of earnings season.",
+        "💹 Investors eye FED meeting; US inflation data due tomorrow.",
+        "🔍 Stock Watchlist Update: HDFC Bank added to your watchlist.",
+        "🧾 IPO Update: Mamaearth lists at 6% premium over issue price.",
+        "📢 Dividends Announced: Reliance to pay ₹9/share interim dividend.",
+        "🔄 Market Update: Midcap stocks outperform broader indices today.",
+        "🔐 Security Notice: Your trading app session was logged out due to inactivity.",
+        "🧠 Insight: 75% of Nifty companies have reported better-than-expected earnings.",
+        "🚀 Stock Surge: Zomato jumps 8% on strong quarterly delivery growth.",
+        "📆 Upcoming Event: Budget 2025 announcement scheduled for next week.",
+        "💰 FII Activity: Foreign investors net buyers worth ₹1,200 crore today.",
+        "🧮 Technical Signal: Bullish crossover observed on SBI’s 50-day moving average.",
+        "⏰ Reminder: Markets closed tomorrow for a national holiday."
+      ];
+      const randomIndex = Math.floor(Math.random() * notifications.length);
+      document.getElementById("Notification").innerHTML = notifications[randomIndex];
+    }
+
+    fetchStock();
+    getNotification();
+    setInterval(fetchStock, 1000);
+    setInterval(getNotification, 2000);
+  </script>
+</body>
+</html>

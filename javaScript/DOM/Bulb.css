@@ -1,0 +1,11 @@
+p{
+    border-radius: 50%;
+    color: black;
+    background-color: gray;
+    height: 20vh;
+    width: 20vh;
+}
+button{
+    margin-left: 35px;
+    
+}

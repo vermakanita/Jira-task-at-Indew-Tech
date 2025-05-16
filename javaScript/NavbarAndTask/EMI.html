@@ -1,0 +1,90 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMI Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-green-200 via-blue-100 to-purple-200 flex items-center justify-center min-h-screen">
+
+  <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
+    <h2 class="text-3xl font-bold text-center text-green-600 mb-8 tracking-wide">EMI Calculator</h2>
+
+    <div class="space-y-5">
+      <div>
+        <label for="amount" class="block text-gray-700 font-medium mb-1">Loan Amount (₹)</label>
+        <input type="number" id="amount" placeholder="Enter amount"
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+      </div>
+
+      <div>
+        <label for="rate" class="block text-gray-700 font-medium mb-1">Annual Interest Rate (%)</label>
+        <input type="number" id="rate" placeholder="Enter interest rate"
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+      </div>
+
+      <div>
+        <label for="time" class="block text-gray-700 font-medium mb-1">Loan Tenure (in months)</label>
+        <input type="number" id="time" placeholder="Enter months"
+          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition" />
+      </div>
+
+      <button onclick="EmiCalculator()"
+        class="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold py-3 rounded-xl hover:from-green-600 hover:to-teal-600 transition duration-300">
+        Calculate EMI
+      </button>
+
+      <div id="result"
+        class="text-center mt-6 text-xl text-purple-700 font-medium min-h-[2rem]">
+        Your EMI will appear here
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function EmiCalculator() {
+      const principal = parseFloat(document.getElementById('amount').value);
+      const rate = parseFloat(document.getElementById('rate').value) / 100 / 12; // Monthly rate
+      const time = parseInt(document.getElementById('time').value);
+
+      const resultEl = document.getElementById('result');
+
+      if (isNaN(principal) || isNaN(rate) || isNaN(time) || principal <= 0 || rate <= 0 || time <= 0) {
+        resultEl.innerText = "Please enter valid positive values for all fields.";
+        return;
+      }
+
+      const emi = (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
+      resultEl.innerText = `Your EMI is ₹${emi.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+
+</html>

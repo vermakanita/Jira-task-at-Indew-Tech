@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Video Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 p-6">
+    <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">YouTube Video Search</h1>
+
+        <input type="text" id="searchInput" placeholder="Search for videos"
+            class="border-2 border-gray-400 p-2 rounded-md w-2/3" />
+
+        <button onclick="showData()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md ml-2">
+            Search
+        </button>
+
+        <div id="videoGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8"> </div>
+    </div>
+
+    <script>
+        const Videos = [
+            {
+                title: "Learn HTML",
+                img: "https://www.educative.io/api/page/5184213461499904/image/download/6096311389519872" ,
+                url: "https://www.bing.com/videos/riverview/relatedvideo?&q=html&&mid=CC4F786097E7B5A9C76CCC4F786097E7B5A9C76C&&FORM=VRDGAR",
+                Trainer:"Trainer : Anirudhra sir",
+                Course :"  Course : Learn HTML only 2 hourse "
+            },
+            {
+                title: "Learn Java script ",
+                img: "https://tse3.mm.bing.net/th/id/OIP.DEt_TbohHcb6KhpldP6vMwHaEK?rs=1&pid=ImgDetMain",
+                url: "https://www.bing.com/videos/riverview/relatedvideo?&q=javascript&&mid=FE01E1C8816B3CCC91F8FE01E1C8816B3CCC91F8&&FORM=VRDGAR",
+                Trainer:"Trainer : Anirudhra sir",
+                Course :" Course: make dynamic websites with javaScript"
+            },
+            {
+                title: "Learn Tailwind",
+                img: "https://laravelnews.s3.amazonaws.com/images/tailwindcss-1633184775.jpg",
+                url: "https://www.youtube.com/watch?v=_9mTJ84uL1Q&t=268s",
+                Trainer:" Trainer : Anirudhra sir",
+                Course :" Course : Explore Taiwind "
+            }
+        ];
+
+        function showData() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const videoGrid = document.getElementById("videoGrid");
+            videoGrid.innerHTML = "";
+
+            const matchedVideos = searchInput
+                ? Videos.filter(video => video.title.toLowerCase().includes(searchInput))
+                : Videos;
+
+            if (matchedVideos.length === 0) {
+                videoGrid.innerHTML = `<p class="text-red-600 col-span-full">No videos found for: <strong>${searchInput}</strong></p>`;
+                return;
+            }
+
+            matchedVideos.forEach(video => {
+                videoGrid.innerHTML += `
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                          <a href="${video.url}" target="_blank">
+                            <img src="${video.img}" class=" h-48 object-cover rounded" />
+                        </a>
+                           <h2 class="text-lg font-semibold mb-2">${video.title}</h2>
+                           <p  class="text-lg font-semibold mb-2>${video.Course}</p>
+                            <p  class="text-lg font-semibold >${video.Trainer}</p>
+                         </div>
+                `;
+            });
+        }
+
+        // Show all videos on page load
+        window.onload = showData;
+    </script>
+</body>
+
+</html>

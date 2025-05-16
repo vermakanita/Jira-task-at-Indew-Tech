@@ -1,0 +1,9 @@
+QUE 1=> What is Indirect Function
+
+Answer=> A function does not call itself directly, but instead calls another function, which eventually calls the first one back creating a loop of function calls.
+
+Que 2=> Who is differ from Recursion
+
+Answer=> In Direct Recursion one function call itself until it does't find the desire output 
+         But In indirect Recursion in this (one Function) call Another function then (Another function) call first function again
+         and this process repeat again and again until it does't find the desire output 

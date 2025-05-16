@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .login-box {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            width: 320px;
+        }
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 18px;
+            color: #2563eb;
+        }
+        .login-box label {
+            display: block;
+            margin-bottom: 6px;
+            margin-top: 12px;
+            color: #374151;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .login-box button:hover {
+            background: #1d4ed8;
+        }
+        .login-box .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        #msg {
+            margin-top: 12px;
+            text-align: center;
+            color: #e11d48;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="login">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <a class="signup-link" href="Signup.html">First time here? Sign up</a>
+        <div id="msg">checking user's authentication</div>
+    </div>
+    <script>
+        document.getElementById('login').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            try {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById("password").value;
+
+                const res = await fetch('http://localhost:3005/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+
+
+            //     console.log(data);
+
+            //     if(data){
+            //     document.getElementById("msg").innerHTML = "done"+ JSON.stringify(data);
+            //     }
+            //     else{
+            //  document.getElementById("msg").innerHTML = ` not done`;
+            //     }
+                if (data && !data.err && !data.error) {
+                    document.getElementById("msg").style.color = "#16a34a";
+                    document.getElementById("msg").innerHTML = `Login successful!<br>User: ${data.name || ""} <br>Email: ${data.email || ""}`;
+                } else {
+                    document.getElementById("msg").style.color = "#e11d48";
+                    document.getElementById("msg").innerHTML = data.err || data.error || "Login failed";
+                }
+            } catch (error) {
+                document.getElementById("msg").style.color = "#e11d48";
+                document.getElementById("msg").innerHTML = "Network error";
+                console.log(error);
+            }
+        });
+    </script>
+</body>
+</html>

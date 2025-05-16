@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <script>
+        let a= Math.floor(Math.random()*10)+1;
+        let guess = Number(prompt("enter num"))
+        console.log("welcome to the game")
+        console.log("guess a number between 1 and 10")
+        console.log("you have 3 chances")
+        while(guess !==a){
+            if(isNaN(guess)){
+                  alert("invalid input")
+                  let guess = Number(prompt("enter num"))
+ 
+              
+               
+            }
+            else if(guess<1 ||guess>10){
+                // let guess = Number(prompt("enter num"))
+      
+                alert("please guess a number between 1 and 10")
+                let guess = Number(prompt("enter num"))
+ 
+              
+            }
+            else if(guess <a){
+                // let guess = Number(prompt("enter num"))
+      
+                alert("too low try again"
+                    //  let guess = Number(prompt("enter num"))
+ 
+              
+                )
+            }
+            else if(guess > a){
+                let guess = Number(prompt("enter num"))
+      
+                alert("too high")
+            }
+            else{
+                alert("congratulations you guessed the number",a);
+                break;
+            }
+
+            // console.log("loop is runing")
+        }
+        alert("congratulations you guessed the number",a);
+
+
+    </script>
+</body>
+</html>
